@@ -1,0 +1,27 @@
+#
+# CIP Core tiny profile with LTP
+# kas configuration for QEMU arm
+#
+# Copyright (c) 2019 TOSHIBA Corp.
+#
+# SPDX-License-Identifier: MIT
+#
+
+header:
+  version: 3
+  includes:
+    - kas-qemuarm.yml
+
+repos:
+  meta-cip-test-support:
+    url: https://gitlab.com/iwamatsu/meta-cip-test-support.git
+
+distro: deby
+
+local_conf_header:
+  ltp: |
+    CORE_IMAGE_EXTRA_INSTALL += "ltp bash coreutils base-files"
+    SERIAL_CONSOLES = "115200;ttyAMA0 115200;ttySC0 115200;ttySC1 115200;ttySC3 115200;ttyS0"
+    INSANE_SKIP_${PN}-dev = "staticdev"
+    INSANE_SKIP_${PN} += "dev-so"
+    IMAGE_FSTYPES = "tar.bz2"
