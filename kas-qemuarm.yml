@@ -1,0 +1,15 @@
+#
+# CIP Core tiny profile
+# kas configuration for QEMU arm
+#
+# Copyright (c) 2019 TOSHIBA Corp.
+#
+# SPDX-License-Identifier: MIT
+#
+
+header:
+  version: 3
+  includes:
+    - kas.yml
+
+machine: qemuarm
