@@ -1,0 +1,22 @@
+#
+# CIP Core tiny profile
+# kas configuration for QEMU x86 64bit
+#
+# Copyright (c) 2019 TOSHIBA Corp.
+#
+# SPDX-License-Identifier: MIT
+#
+
+header:
+  version: 3
+  includes:
+    - kas-qemux86-64.yml
+
+distro: deby
+
+local_conf_header:
+  ltp: |
+    CORE_IMAGE_EXTRA_INSTALL += "ltp bash coreutils"
+    INSANE_SKIP_${PN}-dev = "staticdev"
+    INSANE_SKIP_${PN} += "dev-so"
+    IMAGE_FSTYPES = "tar.bz2"
