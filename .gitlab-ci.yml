@@ -14,3 +14,15 @@ build_bbb:
   script:
     - /kas/docker-entrypoint
     - gosu builder kas build --target core-image-minimal kas-bbb.yml
+
+build_qemuarm-ltp:
+  stage: build
+  script:
+    - /kas/docker-entrypoint
+    - gosu builder kas build --target core-image-minimal kas-qemuarm-ltp.yml
+
+build_qemuram64-ltp:
+  stage: build
+  script:
+    - /kas/docker-entrypoint
+    - gosu builder kas build --target core-image-minimal kas-qemuarm64-ltp.yml
