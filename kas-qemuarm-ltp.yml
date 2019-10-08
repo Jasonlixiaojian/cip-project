@@ -15,6 +15,7 @@ header:
 repos:
   meta-cip-test-support:
     url: https://gitlab.com/iwamatsu/meta-cip-test-support.git
+    refspec: master
 
 distro: deby
 
