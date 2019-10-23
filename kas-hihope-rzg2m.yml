@@ -14,5 +14,7 @@ header:
 
 repos:
   meta-hihope-rzg2m:
+    layers:
+      meta-hihope-rzg2m:
 
 machine: hihope-rzg2m
