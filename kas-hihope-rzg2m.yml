@@ -1,0 +1,18 @@
+#
+# CIP Core tiny profile
+# kas configuration for Hoperun Technology HiHope RZ/G2M platform
+#
+# Copyright (c) 2019 Toshiba Corporation
+#
+# SPDX-License-Identifier: MIT
+#
+
+header:
+  version: 3
+  includes:
+    - kas.yml
+
+repos:
+  meta-hihope-rzg2m:
+
+machine: hihope-rzg2m
