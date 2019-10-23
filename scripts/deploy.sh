@@ -16,6 +16,13 @@ BOARD="${1}"
 shift
 FILES="${@}"
 
+# Install aws command
+PATH=$PATH:~/.local/bin
+if ! which aws 2>&1 >/dev/null; then
+	echo "Installing awscli"
+	pip3 install --user awscli
+fi
+
 echo "Uploading artifacts to ${S3_URI}/${CODENAME}/${BOARD}"
 for file in ${FILES}; do
 	aws s3 cp --no-progress ${file} ${S3_URI}/${CODENAME}/${BOARD}
