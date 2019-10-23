@@ -9,11 +9,11 @@ stages:
 - deploy
 # TODO: deploy artifacts to S3 and submit LAVA job
 
-build_bbb:
-  stage: build
-  script:
-    - /kas/docker-entrypoint
-    - gosu builder kas build --target core-image-minimal kas-bbb.yml
+#build_bbb:
+#  stage: build
+#  script:
+#    - /kas/docker-entrypoint
+#    - gosu builder kas build --target core-image-minimal kas-bbb.yml
 
 build_hihope-rzg2m:
   stage: build
