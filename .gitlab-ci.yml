@@ -6,7 +6,7 @@ variables:
 
 stages:
 - build
-#- deploy
+- deploy
 # TODO: deploy artifacts to S3 and submit LAVA job
 
 build_bbb:
@@ -20,6 +20,17 @@ build_hihope-rzg2m:
   script:
     - /kas/docker-entrypoint
     - gosu builder kas build --target core-image-minimal kas-hihope-rzg2m.yml
+  artifacts:
+    paths:
+      - build/tmp/deploy/images
+
+deploy_hihope-rzg2m:
+  stage: deploy
+  script:
+    - /kas/docker-entrypoint
+    - scripts/deploy.sh buster \
+      build/tmp/deploy/images/hihope-rzg2m/Image \
+      build/tmp/deploy/images/hihope-rzg2m/core-image-minimal-hihope-rzg2m.tar.bz2
 
 #build_qemuarm-ltp:
 #  stage: build
