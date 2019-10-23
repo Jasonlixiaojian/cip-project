@@ -15,6 +15,12 @@ build_bbb:
     - /kas/docker-entrypoint
     - gosu builder kas build --target core-image-minimal kas-bbb.yml
 
+build_hihope-rzg2m:
+  stage: build
+  script:
+    - /kas/docker-entrypoint
+    - gosu builder kas build --target core-image-minimal kas-hihope-rzg2m.yml
+
 build_qemuarm-ltp:
   stage: build
   script:
