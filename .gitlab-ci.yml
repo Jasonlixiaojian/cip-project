@@ -27,6 +27,8 @@ build_hihope-rzg2m:
 deploy_hihope-rzg2m:
   stage: deploy
   script:
+    - export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+    - export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
     - /kas/docker-entrypoint
     - scripts/deploy.sh buster \
       build/tmp/deploy/images/hihope-rzg2m/Image \
