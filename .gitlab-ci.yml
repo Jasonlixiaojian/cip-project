@@ -21,14 +21,14 @@ build_hihope-rzg2m:
     - /kas/docker-entrypoint
     - gosu builder kas build --target core-image-minimal kas-hihope-rzg2m.yml
 
-build_qemuarm-ltp:
-  stage: build
-  script:
-    - /kas/docker-entrypoint
-    - gosu builder kas build --target core-image-minimal kas-qemuarm-ltp.yml
+#build_qemuarm-ltp:
+#  stage: build
+#  script:
+#    - /kas/docker-entrypoint
+#    - gosu builder kas build --target core-image-minimal kas-qemuarm-ltp.yml
 
-build_qemuram64-ltp:
-  stage: build
-  script:
-    - /kas/docker-entrypoint
-    - gosu builder kas build --target core-image-minimal kas-qemuarm64-ltp.yml
+#build_qemuram64-ltp:
+#  stage: build
+#  script:
+#    - /kas/docker-entrypoint
+#    - gosu builder kas build --target core-image-minimal kas-qemuarm64-ltp.yml
