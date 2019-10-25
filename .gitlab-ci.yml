@@ -15,6 +15,27 @@ stages:
 #    - /kas/docker-entrypoint
 #    - gosu builder kas build --target core-image-minimal kas-bbb.yml
 
+build_iwg20m:
+  stage: build
+  script:
+    - /kas/docker-entrypoint
+    - gosu builder kas build --target core-image-minimal kas-iwg20m.yml
+  artifacts:
+    paths:
+      - build/tmp/deploy/images
+
+deploy_iwg20m:
+  stage: deploy
+  script:
+    - export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+    - export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+    - /kas/docker-entrypoint
+    - scripts/deploy.sh iwg20m
+      build/tmp/deploy/images/iwg20m/zImage
+      build/tmp/deploy/images/iwg20m/core-image-minimal-iwg20m.tar.bz2
+      build/tmp/deploy/images/iwg20m/r8a7743-iwg20d-q7.dtb
+      build/tmp/deploy/images/iwg20m/r8a7743-iwg20d-q7-dbcm-ca.dtb
+
 build_hihope-rzg2m:
   stage: build
   script:
