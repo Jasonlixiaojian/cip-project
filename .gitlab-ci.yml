@@ -30,8 +30,8 @@ deploy_hihope-rzg2m:
     - export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
     - export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
     - /kas/docker-entrypoint
-    - scripts/deploy.sh buster \
-      build/tmp/deploy/images/hihope-rzg2m/Image \
+    - scripts/deploy.sh hihope-rzg2m
+      build/tmp/deploy/images/hihope-rzg2m/Image
       build/tmp/deploy/images/hihope-rzg2m/core-image-minimal-hihope-rzg2m.tar.bz2
 
 #build_qemuarm-ltp:

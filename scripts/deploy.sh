@@ -25,5 +25,5 @@ fi
 
 echo "Uploading artifacts to ${S3_URI}/${CODENAME}/${BOARD}"
 for file in ${FILES}; do
-	aws s3 cp --no-progress ${file} ${S3_URI}/${CODENAME}/${BOARD}
+	aws s3 cp --no-progress ${file} ${S3_URI}/${CODENAME}/${BOARD}/
 done
