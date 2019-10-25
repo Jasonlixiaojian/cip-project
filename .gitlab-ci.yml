@@ -9,11 +9,27 @@ stages:
 - deploy
 # TODO: deploy artifacts to S3 and submit LAVA job
 
-#build_bbb:
-#  stage: build
-#  script:
-#    - /kas/docker-entrypoint
-#    - gosu builder kas build --target core-image-minimal kas-bbb.yml
+build_bbb:
+  stage: build
+  script:
+    - /kas/docker-entrypoint
+    - gosu builder kas build --target core-image-minimal kas-bbb.yml
+  artifacts:
+    paths:
+      - build/tmp/deploy/images
+
+deploy_bbb:
+  stage: deploy
+  script:
+    - export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+    - export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+    - /kas/docker-entrypoint
+    - scripts/deploy.sh bbb
+      build/tmp/deploy/images/beaglebone/zImage
+      build/tmp/deploy/images/beaglebone/core-image-minimal-beaglebone.cpio.gz
+      build/tmp/deploy/images/beaglebone/am335x-boneblack.dtb
+  dependencies:
+    - build_bbb
 
 build_iwg20m:
   stage: build
