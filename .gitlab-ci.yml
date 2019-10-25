@@ -7,7 +7,7 @@ variables:
 stages:
 - build
 - deploy
-# TODO: deploy artifacts to S3 and submit LAVA job
+# TODO: Submit test jobs to LAVA master
 
 build_bbb:
   stage: build
@@ -76,15 +76,3 @@ deploy_hihope-rzg2m:
       build/tmp/deploy/images/hihope-rzg2m/r8a774a1-hihope-rzg2m-ex.dtb
   dependencies:
     - build_hihope-rzg2m
-
-#build_qemuarm-ltp:
-#  stage: build
-#  script:
-#    - /kas/docker-entrypoint
-#    - gosu builder kas build --target core-image-minimal kas-qemuarm-ltp.yml
-
-#build_qemuram64-ltp:
-#  stage: build
-#  script:
-#    - /kas/docker-entrypoint
-#    - gosu builder kas build --target core-image-minimal kas-qemuarm64-ltp.yml
