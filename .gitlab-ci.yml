@@ -33,6 +33,8 @@ deploy_hihope-rzg2m:
     - scripts/deploy.sh hihope-rzg2m
       build/tmp/deploy/images/hihope-rzg2m/Image
       build/tmp/deploy/images/hihope-rzg2m/core-image-minimal-hihope-rzg2m.tar.bz2
+      build/tmp/deploy/images/hihope-rzg2m/r8a774a1-hihope-rzg2m.dtb
+      build/tmp/deploy/images/hihope-rzg2m/r8a774a1-hihope-rzg2m-ex.dtb
 
 #build_qemuarm-ltp:
 #  stage: build
