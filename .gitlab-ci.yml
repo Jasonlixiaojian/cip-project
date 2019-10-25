@@ -35,6 +35,8 @@ deploy_iwg20m:
       build/tmp/deploy/images/iwg20m/core-image-minimal-iwg20m.tar.bz2
       build/tmp/deploy/images/iwg20m/r8a7743-iwg20d-q7.dtb
       build/tmp/deploy/images/iwg20m/r8a7743-iwg20d-q7-dbcm-ca.dtb
+  dependencies:
+    - build_iwg20m
 
 build_hihope-rzg2m:
   stage: build
@@ -56,6 +58,8 @@ deploy_hihope-rzg2m:
       build/tmp/deploy/images/hihope-rzg2m/core-image-minimal-hihope-rzg2m.tar.bz2
       build/tmp/deploy/images/hihope-rzg2m/r8a774a1-hihope-rzg2m.dtb
       build/tmp/deploy/images/hihope-rzg2m/r8a774a1-hihope-rzg2m-ex.dtb
+  dependencies:
+    - build_hihope-rzg2m
 
 #build_qemuarm-ltp:
 #  stage: build
