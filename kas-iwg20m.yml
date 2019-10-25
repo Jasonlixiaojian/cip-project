@@ -1,0 +1,20 @@
+#
+# CIP Core tiny profile
+# kas configuration for iWave RZ/G1M Qseven Development Kit
+#
+# Copyright (c) 2019 Toshiba Corporation
+#
+# SPDX-License-Identifier: MIT
+#
+
+header:
+  version: 3
+  includes:
+    - kas.yml
+
+repos:
+  meta-iwg20m:
+    layers:
+      meta-iwg20m:
+
+machine: iwg20m
