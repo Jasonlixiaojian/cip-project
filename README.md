@@ -25,6 +25,8 @@ The following boards are supported in this branch.
 
 * `qemux86-64`: QEMU x86 64bit (Q35 machine)
 * `bbb`: BeagleBone Black
+* `iwg20m`: iWave RZ/G1M Qseven Development Kit
+* `hihope-rzg2m`: Hoperun Technology HiHope RZ/G2M platform
 
 Build Target Images
 ===================
