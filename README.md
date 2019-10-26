@@ -29,17 +29,16 @@ The following boards are supported in this branch.
 Build Target Images
 ===================
 
+Setup the [kas](https://github.com/siemens/kas) docker script (if not yet).
+
+    $ ./scripts/setup-kas-docker.sh
+
 Select the target board from [Supported Hardware](#supported-hardware)
 and set it to `MACHINE` variable.
 
 Example:
 
     $ MACHINE=qemux86-64
-
-Setup the [kas](https://github.com/siemens/kas) docker script.
-
-    $ wget https://raw.githubusercontent.com/siemens/kas/master/kas-docker
-    $ chmod a+x kas-docker
 
 Build images with `kas-docker`.
 
