@@ -16,7 +16,7 @@ distro: deby
 
 local_conf_header:
   ltp: |
-    CORE_IMAGE_EXTRA_INSTALL += "ltp bash coreutils"
+    CORE_IMAGE_EXTRA_INSTALL += "ltp bash coreutils base-files make"
     INSANE_SKIP_${PN}-dev = "staticdev"
     INSANE_SKIP_${PN} += "dev-so"
     IMAGE_FSTYPES = "tar.bz2"
