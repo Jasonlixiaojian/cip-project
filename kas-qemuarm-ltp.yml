@@ -21,7 +21,7 @@ distro: deby
 
 local_conf_header:
   ltp: |
-    CORE_IMAGE_EXTRA_INSTALL += "ltp bash coreutils base-files"
+    CORE_IMAGE_EXTRA_INSTALL += "ltp bash coreutils base-files make"
     SERIAL_CONSOLES = "115200;ttyAMA0 115200;ttySC0 115200;ttySC1 115200;ttySC3 115200;ttyS0"
     INSANE_SKIP_${PN}-dev = "staticdev"
     INSANE_SKIP_${PN} += "dev-so"
