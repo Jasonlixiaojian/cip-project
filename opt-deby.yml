@@ -1,0 +1,15 @@
+#
+# CIP Core tiny profile with LTP
+# kas configuration for QEMU arm
+#
+# Copyright (c) 2019 TOSHIBA Corp.
+#
+# SPDX-License-Identifier: MIT
+#
+#
+header:
+    version: 8
+
+local_conf_header:
+     deby: |
+         DISTRO = "deby"
