@@ -18,3 +18,7 @@ repos:
       meta-iwg20m:
 
 machine: iwg20m
+
+local_conf_header:
+  iwg20m: |
+    CIP_KERNEL_CONFIG = "4.19.y-cip/arm/renesas_shmobile_defconfig"

@@ -22,6 +22,10 @@ repos:
     url: https://github.com/meta-debian/meta-debian.git
     refspec: f11365c18dc0760f4fb05834872e0036aaa44316
 
+  meta-cip-core:
+    layers:
+      meta-cip-core:
+
 distro: deby-tiny
 
 # TODO: The following definitions in local.conf of meta-debian

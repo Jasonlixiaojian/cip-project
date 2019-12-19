@@ -18,3 +18,7 @@ repos:
       meta-hihope-rzg2m:
 
 machine: hihope-rzg2m
+
+local_conf_header:
+  hihope-rzg2m: |
+    CIP_KERNEL_CONFIG = "4.19.y-cip/arm64/renesas_defconfig"
