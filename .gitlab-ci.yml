@@ -30,6 +30,8 @@ deploy_bbb:
       build/tmp/deploy/images/beaglebone/am335x-boneblack.dtb
   dependencies:
     - build_bbb
+  only:
+    - cip-core-buster
 
 build_iwg20m:
   stage: build
@@ -53,6 +55,8 @@ deploy_iwg20m:
       build/tmp/deploy/images/iwg20m/r8a7743-iwg20d-q7-dbcm-ca.dtb
   dependencies:
     - build_iwg20m
+  only:
+    - cip-core-buster
 
 build_hihope-rzg2m:
   stage: build
@@ -76,3 +80,5 @@ deploy_hihope-rzg2m:
       build/tmp/deploy/images/hihope-rzg2m/r8a774a1-hihope-rzg2m-ex.dtb
   dependencies:
     - build_hihope-rzg2m
+  only:
+    - cip-core-buster
