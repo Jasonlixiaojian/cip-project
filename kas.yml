@@ -13,14 +13,14 @@ header:
 repos:
   poky:
     url: "https://git.yoctoproject.org/git/poky"
-    refspec: 411624fa506a74eba7f1b1e159bd1a2286aa6686
+    refspec: 023ff85a9ae94331926e923b346fd8a349881e63
     layers:
       meta:
       meta-poky:
 
   meta-debian:
     url: https://github.com/meta-debian/meta-debian.git
-    refspec: a3981e4702e496ba376720973052b68775e00a9a
+    refspec: f11365c18dc0760f4fb05834872e0036aaa44316
 
 distro: deby-tiny
 
