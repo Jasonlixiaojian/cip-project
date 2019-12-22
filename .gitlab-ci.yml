@@ -12,8 +12,7 @@ stages:
 build_bbb:
   stage: build
   script:
-    - /kas/docker-entrypoint
-    - gosu builder kas build --target core-image-minimal kas-bbb.yml
+    - kas build --target core-image-minimal kas-bbb.yml
   artifacts:
     paths:
       - build/tmp/deploy/images
@@ -23,19 +22,19 @@ deploy_bbb:
   script:
     - export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
     - export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
-    - /kas/docker-entrypoint
     - scripts/deploy.sh bbb
       build/tmp/deploy/images/beaglebone/zImage
       build/tmp/deploy/images/beaglebone/core-image-minimal-beaglebone.cpio.gz
       build/tmp/deploy/images/beaglebone/am335x-boneblack.dtb
   dependencies:
     - build_bbb
+  only:
+    - cip-core-buster
 
 build_iwg20m:
   stage: build
   script:
-    - /kas/docker-entrypoint
-    - gosu builder kas build --target core-image-minimal kas-iwg20m.yml
+    - kas build --target core-image-minimal kas-iwg20m.yml
   artifacts:
     paths:
       - build/tmp/deploy/images
@@ -45,7 +44,6 @@ deploy_iwg20m:
   script:
     - export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
     - export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
-    - /kas/docker-entrypoint
     - scripts/deploy.sh iwg20m
       build/tmp/deploy/images/iwg20m/zImage
       build/tmp/deploy/images/iwg20m/core-image-minimal-iwg20m.tar.bz2
@@ -53,12 +51,13 @@ deploy_iwg20m:
       build/tmp/deploy/images/iwg20m/r8a7743-iwg20d-q7-dbcm-ca.dtb
   dependencies:
     - build_iwg20m
+  only:
+    - cip-core-buster
 
 build_hihope-rzg2m:
   stage: build
   script:
-    - /kas/docker-entrypoint
-    - gosu builder kas build --target core-image-minimal kas-hihope-rzg2m.yml
+    - kas build --target core-image-minimal kas-hihope-rzg2m.yml
   artifacts:
     paths:
       - build/tmp/deploy/images
@@ -68,7 +67,6 @@ deploy_hihope-rzg2m:
   script:
     - export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
     - export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
-    - /kas/docker-entrypoint
     - scripts/deploy.sh hihope-rzg2m
       build/tmp/deploy/images/hihope-rzg2m/Image
       build/tmp/deploy/images/hihope-rzg2m/core-image-minimal-hihope-rzg2m.tar.bz2
@@ -76,3 +74,5 @@ deploy_hihope-rzg2m:
       build/tmp/deploy/images/hihope-rzg2m/r8a774a1-hihope-rzg2m-ex.dtb
   dependencies:
     - build_hihope-rzg2m
+  only:
+    - cip-core-buster
