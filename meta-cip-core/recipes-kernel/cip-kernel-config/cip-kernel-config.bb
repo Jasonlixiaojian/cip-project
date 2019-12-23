@@ -27,7 +27,7 @@ do_install() {
 		if [ ! -f ${S}/${CIP_KERNEL_CONFIG} ]; then
 			bbfatal "${CIP_KERNEL_CONFIG} not found"
 		fi
-		install -d ${datadir}/${BPN}
+		install -d ${datadir}/${BPN}/$(dirname ${CIP_KERNEL_CONFIG})
 		install -m 0644 ${S}/${CIP_KERNEL_CONFIG} ${datadir}/${BPN}
 	fi
 }
