@@ -2,7 +2,7 @@
 # CIP Core tiny profile
 # kas configuration for Debian 10 buster userland (Machine-independent part)
 #
-# Copyright (c) 2019 TOSHIBA Corp.
+# Copyright (c) 2020 TOSHIBA Corp.
 #
 # SPDX-License-Identifier: MIT
 #
@@ -13,14 +13,14 @@ header:
 repos:
   poky:
     url: "https://git.yoctoproject.org/git/poky"
-    refspec: 023ff85a9ae94331926e923b346fd8a349881e63
+    refspec: 4edf4eb9cc86fbd4b51240fae527c1b97a7ace74
     layers:
       meta:
       meta-poky:
 
   meta-debian:
     url: https://github.com/meta-debian/meta-debian.git
-    refspec: f11365c18dc0760f4fb05834872e0036aaa44316
+    refspec: 7e27fae1c9d7b9ea8cdc1620a78cb94453f42cd3
 
   meta-cip-core:
     layers:
