@@ -1,10 +1,9 @@
 #!/bin/sh
 
-# kas 2.0
-KAS_COMMIT=141476203d59bf57a2c6d8531050e467b2e7127e
+KAS_RELEASE=2.0
 
 # kas docker image version
-export KAS_IMAGE_VERSION=0.13.0
+export KAS_IMAGE_VERSION=${KAS_RELEASE}
 
 if [ -z "${1}" ]; then
 	echo "Usage: ${0} kas-xxx.yml"
@@ -12,7 +11,7 @@ if [ -z "${1}" ]; then
 fi
 
 rm -f kas-docker
-wget https://raw.githubusercontent.com/siemens/kas/${KAS_COMMIT}/kas-docker
+wget https://raw.githubusercontent.com/siemens/kas/${KAS_RELEASE}/kas-docker
 if [ ${?} != 0 ]; then
 	echo "Failed to download kas-docker script"
 	exit 1
