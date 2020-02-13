@@ -2,7 +2,7 @@
 # CIP Core tiny profile
 # kas configuration for BeagleBone Black
 #
-# Copyright (c) 2019 TOSHIBA Corp.
+# Copyright (c) 2020 TOSHIBA Corp.
 #
 # SPDX-License-Identifier: MIT
 #
@@ -26,5 +26,5 @@ machine: beaglebone
 # TODO: Should be moved to the BSP adjusting layer in meta-debian
 local_conf_header:
   bbb: |
-    LINUX_DEFCONFIG = "omap2plus_defconfig"
+    CIP_KERNEL_CONFIG = "4.19.y-cip/arm/cip_bbb_defconfig"
     KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
