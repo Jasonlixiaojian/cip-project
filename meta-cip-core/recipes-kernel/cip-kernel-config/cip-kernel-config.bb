@@ -4,7 +4,7 @@ LICENSE = "GPL-2.0"
 LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 SRC_URI = "git://gitlab.com/cip-project/cip-kernel/cip-kernel-config;branch=master;protocol=https"
-SRCREV = "0f2302dc745c66465564ff59be9662c3ba00d0f3"
+SRCREV = "3f2e40e6ceddbd5a1d295eeb59955679174a4a15"
 PV = "git${SRCPV}"
 
 S = "${WORKDIR}/git"
