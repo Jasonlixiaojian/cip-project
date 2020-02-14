@@ -48,4 +48,4 @@ Run Images on the target board
 QEMU
 ----
 
-    $ ./start-qemu.sh ${MACHINE}
+    $ ./scripts/start-qemu.sh ${MACHINE}
