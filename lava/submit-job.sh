@@ -20,8 +20,8 @@ JOB=${1}
 PATH=$PATH:~/.local/bin
 if ! which lavacli 2>&1 >/dev/null; then
 	echo "Installing lavacli"
-	pip3 install wheel
-	pip3 install lavacli
+	pip3 install --user wheel
+	pip3 install --user lavacli
 fi
 
 # The following must be set in GitLab CI variables:
