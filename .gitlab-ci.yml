@@ -1,4 +1,4 @@
-image: kasproject/kas:0.13.0
+image: kasproject/kas:2.0
 
 variables:
   GIT_STRATEGY: clone
