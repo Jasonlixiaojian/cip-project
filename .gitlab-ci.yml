@@ -7,7 +7,7 @@ variables:
 stages:
 - build
 - deploy
-# TODO: Submit test jobs to LAVA master
+- test
 
 build_bbb:
   stage: build
@@ -76,3 +76,8 @@ deploy_hihope-rzg2m:
     - build_hihope-rzg2m
   only:
     - cip-core-buster
+
+test_hihope-rzg2m:
+  stage: test
+  script:
+    - lava/submit-job.sh lava/jobs/hihope-rzg2m-uname.yml
