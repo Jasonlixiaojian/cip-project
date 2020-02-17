@@ -6,8 +6,9 @@ variables:
 
 stages:
 - build
-- deploy
 - test
+
+# TODO: Set `only` again to test jobs after the test flows are implemented
 
 build_bbb:
   stage: build
@@ -17,19 +18,16 @@ build_bbb:
     paths:
       - build/tmp/deploy/images
 
-deploy_bbb:
-  stage: deploy
+test_bbb:
+  stage: test
   script:
-    - export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
-    - export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
-    - scripts/deploy.sh bbb
+    - scripts/upload.sh bbb
       build/tmp/deploy/images/beaglebone/zImage
       build/tmp/deploy/images/beaglebone/core-image-minimal-beaglebone.cpio.gz
       build/tmp/deploy/images/beaglebone/am335x-boneblack.dtb
+    - lava/submit-job.sh lava/jobs/bbb-uname.yml
   dependencies:
     - build_bbb
-  only:
-    - cip-core-buster
 
 build_iwg20m:
   stage: build
@@ -39,20 +37,17 @@ build_iwg20m:
     paths:
       - build/tmp/deploy/images
 
-deploy_iwg20m:
-  stage: deploy
+test_iwg20m:
+  stage: test
   script:
-    - export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
-    - export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
-    - scripts/deploy.sh iwg20m
+    - scripts/upload.sh iwg20m
       build/tmp/deploy/images/iwg20m/zImage
       build/tmp/deploy/images/iwg20m/core-image-minimal-iwg20m.tar.bz2
       build/tmp/deploy/images/iwg20m/r8a7743-iwg20d-q7.dtb
       build/tmp/deploy/images/iwg20m/r8a7743-iwg20d-q7-dbcm-ca.dtb
+    - lava/submit-job.sh lava/jobs/iwg20m-uname.yml
   dependencies:
     - build_iwg20m
-  only:
-    - cip-core-buster
 
 build_hihope-rzg2m:
   stage: build
@@ -62,22 +57,14 @@ build_hihope-rzg2m:
     paths:
       - build/tmp/deploy/images
 
-deploy_hihope-rzg2m:
-  stage: deploy
-  script:
-    - export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
-    - export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
-    - scripts/deploy.sh hihope-rzg2m
-      build/tmp/deploy/images/hihope-rzg2m/Image
-      build/tmp/deploy/images/hihope-rzg2m/core-image-minimal-hihope-rzg2m.tar.bz2
-      build/tmp/deploy/images/hihope-rzg2m/r8a774a1-hihope-rzg2m.dtb
-      build/tmp/deploy/images/hihope-rzg2m/r8a774a1-hihope-rzg2m-ex.dtb
-  dependencies:
-    - build_hihope-rzg2m
-  only:
-    - cip-core-buster
-
 test_hihope-rzg2m:
   stage: test
   script:
+    - scripts/upload.sh hihope-rzg2m
+      build/tmp/deploy/images/hihope-rzg2m/Image
+      build/tmp/deploy/images/hihope-rzg2m/core-image-minimal-hihope-rzg2m.tar.bz2
+      build/tmp/deploy/images/hihope-rzg2m/r8a774a1-hihope-rzg2m-ex.dtb
     - lava/submit-job.sh lava/jobs/hihope-rzg2m-uname.yml
+  dependencies:
+    - build_hihope-rzg2m
+
