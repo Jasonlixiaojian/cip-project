@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# The following must be set in GitLab CI variables:
+# AWS_ACCESS_KEY_ID
+# AWS_SECRET_ACCESS_KEY
+
 S3_URI="s3://download.cip-project.org/cip-core/deby"
 CODENAME="buster"
 

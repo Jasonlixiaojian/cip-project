@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# The following must be set in GitLab CI variables:
+# LAVA_USER
+# LAVA_TOKEN
+
 set -e
 
 usage() {
@@ -24,8 +28,5 @@ if ! which lavacli 2>&1 >/dev/null; then
 	pip3 install --user lavacli
 fi
 
-# The following must be set in GitLab CI variables:
-# LAVA_USER
-# LAVA_TOKEN
 echo "Submitting job ${JOB}"
 lavacli --uri https://${LAVA_USER}:${LAVA_TOKEN}@lava.ciplatform.org/RPC2 jobs submit ${JOB}
