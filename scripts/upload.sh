@@ -25,5 +25,7 @@ fi
 
 echo "Uploading artifacts to ${S3_URI}/${CODENAME}/${BOARD}"
 for file in ${FILES}; do
-	aws s3 cp --no-progress ${file} ${S3_URI}/${CODENAME}/${BOARD}/
+	# Set ACL so that LAVA jobs can download these files
+	aws s3 cp --acl public-read --no-progress \
+		${file} ${S3_URI}/${CODENAME}/${BOARD}/
 done
