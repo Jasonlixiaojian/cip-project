@@ -25,7 +25,7 @@ test_bbb:
       build/tmp/deploy/images/beaglebone/zImage
       build/tmp/deploy/images/beaglebone/core-image-minimal-beaglebone.cpio.gz
       build/tmp/deploy/images/beaglebone/am335x-boneblack.dtb
-    - lava/submit-job.sh lava/jobs/bbb-uname.yml
+    - lava/submit-job.sh am335x-boneblack uname
   dependencies:
     - build_bbb
 
@@ -44,8 +44,7 @@ test_iwg20m:
       build/tmp/deploy/images/iwg20m/zImage
       build/tmp/deploy/images/iwg20m/core-image-minimal-iwg20m.tar.bz2
       build/tmp/deploy/images/iwg20m/r8a7743-iwg20d-q7.dtb
-      build/tmp/deploy/images/iwg20m/r8a7743-iwg20d-q7-dbcm-ca.dtb
-    - lava/submit-job.sh lava/jobs/iwg20m-uname.yml
+    - lava/submit-job.sh r8a7743-iwg20d-q7 uname
   dependencies:
     - build_iwg20m
 
@@ -64,7 +63,6 @@ test_hihope-rzg2m:
       build/tmp/deploy/images/hihope-rzg2m/Image
       build/tmp/deploy/images/hihope-rzg2m/core-image-minimal-hihope-rzg2m.tar.bz2
       build/tmp/deploy/images/hihope-rzg2m/r8a774a1-hihope-rzg2m-ex.dtb
-    - lava/submit-job.sh lava/jobs/hihope-rzg2m-uname.yml
+    - lava/submit-job.sh r8a774a1-hihope-rzg2m-ex uname
   dependencies:
     - build_hihope-rzg2m
-

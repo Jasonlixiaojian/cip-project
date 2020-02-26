@@ -1,0 +1,21 @@
+- test:
+    timeout:
+      minutes: 5
+    definitions:
+    - repository:
+        metadata:
+          format: Lava-Test Test Definition 1.0
+          name: uname
+          version: "1.0"
+          description: "Run uname"
+          os:
+            - oe
+          scope:
+            - functional
+        run:
+          steps:
+            - lava-test-case uname --shell uname -a
+      from: inline
+      name: uname
+      lava-signal: kmsg
+      path: inline/uname.yaml

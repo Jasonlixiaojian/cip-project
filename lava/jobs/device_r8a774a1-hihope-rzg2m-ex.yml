@@ -1,0 +1,25 @@
+actions:
+- deploy:
+    timeout:
+      minutes: 10
+    to: tftp
+    os: oe
+    kernel:
+      url: https://s3-us-west-2.amazonaws.com/download.cip-project.org/cip-core/deby/buster/hihope-rzg2m/Image
+      type: image
+    nfsrootfs:
+      url: https://s3-us-west-2.amazonaws.com/download.cip-project.org/cip-core/deby/buster/hihope-rzg2m/core-image-minimal-hihope-rzg2m.tar.bz2
+      compression: bz2
+    dtb:
+      url: https://s3-us-west-2.amazonaws.com/download.cip-project.org/cip-core/deby/buster/hihope-rzg2m/r8a774a1-hihope-rzg2m-ex.dtb
+
+- boot:
+    auto_login:
+      login_prompt: 'hihope-rzg2m login:'
+      username: root
+    prompts:
+      - 'root@hihope-rzg2m'
+    method: u-boot
+    commands: nfs
+    timeout:
+      minutes: 5
