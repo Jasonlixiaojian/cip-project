@@ -39,8 +39,6 @@ cat lava/jobs/common.yml \
     > ${job_name}.yml
 sed -i "s|DEVICE_TYPE|${device_type}|g" ${job_name}.yml
 sed -i "s|JOB_NAME|${job_name}|g" ${job_name}.yml
-echo "${job_name}.yml:"
-cat ${job_name}.yml
 
 echo "Submitting job ${job_name}"
 lavacli --uri ${LAVA_URI} jobs submit ${job_name}.yml
