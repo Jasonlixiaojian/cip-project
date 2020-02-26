@@ -37,8 +37,8 @@ cat lava/jobs/common.yml \
     lava/jobs/device_${device_type}.yml \
     lava/jobs/test_${test}.yml \
     > ${job_name}.yml
-sed -i "s|device_type|${device_type}|g" ${job_name}.yml
-sed -i "s|job_name|${job_name}|g" ${job_name}.yml
+sed -i "s|DEVICE_TYPE|${device_type}|g" ${job_name}.yml
+sed -i "s|JOB_NAME|${job_name}|g" ${job_name}.yml
 echo "${job_name}.yml:"
 cat ${job_name}.yml
 
