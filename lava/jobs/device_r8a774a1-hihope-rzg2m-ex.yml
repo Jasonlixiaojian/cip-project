@@ -18,7 +18,7 @@ actions:
       login_prompt: 'hihope-rzg2m login:'
       username: root
     prompts:
-      - '#'
+      - '# '
     method: u-boot
     commands: nfs
     timeout:
