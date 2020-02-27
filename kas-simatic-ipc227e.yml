@@ -1,0 +1,24 @@
+#
+# CIP Core tiny profile
+# kas configuration for Siemens SIMATIC IPC227E
+#
+# Copyright (c) 2020 Toshiba Corporation
+#
+# SPDX-License-Identifier: MIT
+#
+
+header:
+  version: 3
+  includes:
+    - kas.yml
+
+repos:
+  meta-simatic-ipc227e:
+    layers:
+      meta-simatic-ipc227e:
+
+machine: simatic-ipc227e
+
+local_conf_header:
+  simatic-ipc227e: |
+    CIP_KERNEL_CONFIG = "4.19.y-cip/x86/siemens_ipc227e_defconfig"

@@ -27,6 +27,7 @@ The following boards are supported in this branch.
 * `bbb`: BeagleBone Black
 * `iwg20m`: iWave RZ/G1M Qseven Development Kit
 * `hihope-rzg2m`: Hoperun Technology HiHope RZ/G2M platform
+* `simatic-ipc227e`: Siemens SIMATIC IPC227E
 
 Build Target Images
 ===================
