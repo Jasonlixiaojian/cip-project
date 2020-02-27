@@ -57,3 +57,18 @@ test_hihope-rzg2m:
     - lava/submit-job.sh r8a774a1-hihope-rzg2m-ex uname
   dependencies:
     - build_hihope-rzg2m
+
+build_simatic-ipc227e:
+  stage: build
+  script:
+    - kas build --target core-image-minimal kas-simatic-ipc227e.yml
+    - scripts/upload.sh simatic-ipc227e
+      build/tmp/deploy/images/simatic-ipc227e/bzImage
+      build/tmp/deploy/images/simatic-ipc227e/core-image-minimal-simatic-ipc227e.tar.bz2
+
+test_simatic-ipc227e:
+  stage: test
+  script:
+    - lava/submit-job.sh simatic-ipc227e uname
+  dependencies:
+    - build_simatic-ipc227e

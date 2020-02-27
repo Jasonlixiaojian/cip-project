@@ -1,0 +1,23 @@
+actions:
+- deploy:
+    timeout:
+      minutes: 10
+    to: tftp
+    os: oe
+    kernel:
+      url: https://s3-us-west-2.amazonaws.com/download.cip-project.org/cip-core/deby/buster/simatic-ipc227e/bzImage
+      type: bzimage
+    nfsrootfs:
+      url: https://s3-us-west-2.amazonaws.com/download.cip-project.org/cip-core/deby/buster/simatic-ipc227e/core-image-minimal-simatic-ipc227e.tar.bz2
+      compression: bz2
+
+- boot:
+    auto_login:
+      login_prompt: 'simatic-ipc227e login:'
+      username: root
+    prompts:
+      - '# '
+    method: ipxe
+    commands: nfs
+    timeout:
+      minutes: 5
