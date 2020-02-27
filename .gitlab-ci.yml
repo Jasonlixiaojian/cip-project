@@ -69,6 +69,7 @@ build_simatic-ipc227e:
 test_simatic-ipc227e:
   stage: test
   script:
-    - lava/submit-job.sh simatic-ipc227e uname
+    # TODO: device_type name should be changed to "simatic-ipc227e"?
+    - lava/submit-job.sh x86 uname
   dependencies:
     - build_simatic-ipc227e
