@@ -19,12 +19,13 @@ build_bbb:
       build/tmp/deploy/images/beaglebone/core-image-minimal-beaglebone.cpio.gz
       build/tmp/deploy/images/beaglebone/am335x-boneblack.dtb
 
-test_bbb:
-  stage: test
-  script:
-    - lava/submit-job.sh am335x-boneblack uname
-  dependencies:
-    - build_bbb
+# Suspended until the LAVA lab including the device becomes available
+#test_bbb:
+#  stage: test
+#  script:
+#    - lava/submit-job.sh am335x-boneblack uname
+#  dependencies:
+#    - build_bbb
 
 build_iwg20m:
   stage: build
