@@ -1,0 +1,21 @@
+#
+# CIP Core tiny profile with LTP
+# kas configuration for QEMU arm
+#
+# Copyright (c) 2019 TOSHIBA Corp.
+#
+# SPDX-License-Identifier: MIT
+#
+
+
+header:
+    version: 8
+
+repos:
+  meta-cip-test-support:
+    url: https://gitlab.com/iwamatsu/meta-cip-test-support.git
+    refspec: master
+
+local_conf_header:
+  dhcp: |
+    CORE_IMAGE_EXTRA_INSTALL += "busybox-udhcpc"
