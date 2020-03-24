@@ -19,7 +19,7 @@ repos:
 local_conf_header:
   ltp: |
     PREFERRED_VERSION_ltp ?= "20190517"
-    CORE_IMAGE_EXTRA_INSTALL += "ltp bash coreutils base-files make"
+    CORE_IMAGE_EXTRA_INSTALL += "ltp bash coreutils base-files make binutils"
     INSANE_SKIP_${PN}-dev = "staticdev"
     INSANE_SKIP_${PN} += "dev-so"
     IMAGE_FSTYPES = "tar.bz2"
