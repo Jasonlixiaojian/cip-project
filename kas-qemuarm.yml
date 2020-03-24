@@ -13,3 +13,7 @@ header:
     - kas.yml
 
 machine: qemuarm
+
+local_conf_header:
+  base: |
+    SERIAL_CONSOLES = "115200;ttyAMA0 115200;ttySC0 115200;ttySC1 115200;ttySC3 115200;ttyS0"
