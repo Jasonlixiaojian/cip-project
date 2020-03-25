@@ -50,3 +50,37 @@ QEMU
 ----
 
     $ ./scripts/start-qemu.sh ${MACHINE}
+
+Create test image for CIP's LAVA
+================================
+
+base image for QEMU x86-64
+--------------------------
+
+    $ ./scripts/kas-build.sh kas-qemux86-64.yml:opt-deby.yml:opt-dhcp.yml:opt-smc.yml
+
+LTP test image for QEMU x86-64
+------------------------------
+
+    $ ./scripts/kas-build.sh kas-qemux86-64.yml:opt-deby.yml:opt-dhcp.yml:opt-ltp.yml
+
+base image for QEMU arm (armhf) / iwg20m
+-------------------------
+
+    $ ./scripts/kas-build.sh kas-qemuarm.yml:opt-deby.yml:opt-dhcp.yml:opt-smc.yml
+
+LTP test image for QEMU arm (armhf) / iwg20m
+------------------------------
+
+    $ ./scripts/kas-build.sh kas-qemuarm.yml:opt-deby.yml:opt-dhcp.yml:opt-ltp.yml
+
+base image for QEMU arm64 / hihope-rzg2m
+--------------------------
+
+    $ ./scripts/kas-build.sh kas-qemuarm64.yml:opt-deby.yml:opt-dhcp.yml:opt-smc.yml
+
+LTP test image for QEMU arm64 / hihope-rzg2m
+------------------------------
+
+    $ ./scripts/kas-build.sh kas-qemuarm64.yml:opt-deby.yml:opt-dhcp.yml:opt-ltp.yml
+
