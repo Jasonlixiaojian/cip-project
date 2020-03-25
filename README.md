@@ -41,7 +41,7 @@ Example:
 
 Build images with `kas-build.sh` helper script.
 
-    $ ./scripts/kas-build kas-${MACHINE}.yml
+    $ ./scripts/kas-build.sh kas-${MACHINE}.yml
 
 Run Images on the target board
 ==============================
