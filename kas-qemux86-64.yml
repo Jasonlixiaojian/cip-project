@@ -13,3 +13,6 @@ header:
     - kas.yml
 
 machine: qemux86-64
+local_conf_header:
+  qemux86-64: |
+    CIP_KERNEL_CONFIG = "4.19.y-cip/x86/cip_qemu_defconfig"
