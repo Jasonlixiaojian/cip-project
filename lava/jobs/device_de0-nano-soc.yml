@@ -1,0 +1,25 @@
+actions:
+- deploy:
+    timeout:
+      minutes: 10
+    to: tftp
+    os: oe
+    kernel:
+      url: https://s3-us-west-2.amazonaws.com/download.cip-project.org/cip-core/deby/buster/de0-nano-soc/zImage
+      type: zimage
+    nfsrootfs:
+      url: https://s3-us-west-2.amazonaws.com/download.cip-project.org/cip-core/deby/buster/de0-nano-soc/core-image-minimal-de0-nano-soc.tar.bz2
+      compression: bz2
+    dtb:
+      url: https://s3-us-west-2.amazonaws.com/download.cip-project.org/cip-core/deby/buster/de0-nano-soc/socfpga_cyclone5_de0_nano_soc-de0-nano-soc.dtb
+
+- boot:
+    auto_login:
+      login_prompt: 'de0-nano-soc login:'
+      username: root
+    prompts:
+      - '# '
+    method: u-boot
+    commands: nfs
+    timeout:
+      minutes: 5

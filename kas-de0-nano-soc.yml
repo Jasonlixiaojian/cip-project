@@ -1,0 +1,24 @@
+#
+# CIP Core tiny profile
+# kas configuration for Terasic DE0-Nano-SoC Board
+#
+# Copyright (c) 2019 Toshiba Corporation
+#
+# SPDX-License-Identifier: MIT
+#
+
+header:
+  version: 3
+  includes:
+    - kas.yml
+
+repos:
+  meta-de0-nano-soc:
+    layers:
+      meta-de0-nano-soc:
+
+machine: de0-nano-soc
+
+local_conf_header:
+  de0-nano-soc: |
+    CIP_KERNEL_CONFIG = "4.19.y-cip/arm/siemens_de0-nano-soc_defconfig"

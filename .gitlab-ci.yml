@@ -73,3 +73,19 @@ test_simatic-ipc227e:
     - lava/submit-job.sh x86 uname
   dependencies:
     - build_simatic-ipc227e
+
+build_de0-nano-soc:
+  stage: build
+  script:
+    - kas build --target core-image-minimal kas-de0-nano-soc.yml
+    - scripts/upload.sh de0-nano-soc
+      build/tmp/deploy/images/de0-nano-soc/zImage
+      build/tmp/deploy/images/de0-nano-soc/core-image-minimal-de0-nano-soc.tar.bz2 
+      build/tmp/deploy/images/de0-nano-soc/socfpga_cyclone5_de0_nano_soc-de0-nano-soc.dtb
+
+test_de0-nano-soc:
+  stage: test
+  script:
+    - lava/submit-job.sh de0-nano-soc uname
+  dependencies:
+    - build_de0-nano-soc
