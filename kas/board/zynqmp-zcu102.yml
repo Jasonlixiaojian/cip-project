@@ -1,0 +1,24 @@
+#
+# CIP Core tiny profile
+# kas configuration for Xilinx zynqmp-zcu102
+#
+# Copyright (c) 2020 TOSHIBA Corp.
+#
+# SPDX-License-Identifier: MIT
+#
+
+header:
+  version: 3
+  includes:
+    - kas.yml
+
+repos:
+  meta-zynqmp-zcu102:
+    layers:
+      meta-zynqmp-zcu102:
+
+machine: zynqmp-zcu102
+
+local_conf_header:
+  zynqmp-zcu102: |
+    CIP_KERNEL_CONFIG = "4.19.y-cip/arm64/ctj_zynqmp_defconfig"

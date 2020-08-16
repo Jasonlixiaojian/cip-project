@@ -139,6 +139,22 @@ test:r8a774c0-ek874:
   dependencies:
     - build:r8a774c0-ek874
 
+build:zynqmp-zcu102:
+  extends:
+    - .build_base
+  variables:
+    target: zynqmp-zcu102
+    bb_target: zynqmp-zcu102
+    kernel: Image
+    dtb: zynqmp-zcu102-rev1.0.dtb
+
+test:zynqmp-zcu102:
+  stage: test
+  script:
+    - lava/submit-job.sh zynqmp-zcu102 uname
+  dependencies:
+    - build:zynqmp-zcu102
+
 # create image include ltp.
 
 build:beaglebone-black-test:
@@ -193,6 +209,14 @@ build:de0-nano-soc-test:
   when: manual
   extends:
     - build:de0-nano-soc
+  variables:
+    feature_yaml: kas/opt/deby.yml:kas/opt/ltp.yml
+    imagename: ltp
+
+build:zynqmp-zcu102-test:
+  when: manual
+  extends:
+    - build:zynqmp-zcu102
   variables:
     feature_yaml: kas/opt/deby.yml:kas/opt/ltp.yml
     imagename: ltp
