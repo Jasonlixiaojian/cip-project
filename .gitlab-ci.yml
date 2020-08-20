@@ -10,11 +10,11 @@ stages:
 
 # TODO: Set `only` again to test jobs after the test flows are implemented
 
-build_bbb:
+build_beaglebone-black:
   stage: build
   script:
-    - kas build --target core-image-minimal kas-bbb.yml
-    - scripts/upload.sh bbb
+    - kas build --target core-image-minimal kas-beaglebone-black.yml
+    - scripts/upload.sh beaglebone-black
       build/tmp/deploy/images/beaglebone/zImage
       build/tmp/deploy/images/beaglebone/core-image-minimal-beaglebone.cpio.gz
       build/tmp/deploy/images/beaglebone/am335x-boneblack.dtb
