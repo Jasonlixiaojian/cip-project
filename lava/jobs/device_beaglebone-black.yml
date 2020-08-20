@@ -1,0 +1,25 @@
+actions:
+- deploy:
+    timeout:
+      minutes: 10
+    to: tftp
+    os: oe
+    kernel:
+      url: https://s3-us-west-2.amazonaws.com/download.cip-project.org/cip-core/deby/buster/beaglebone-black/zImage
+      type: zimage
+    ramdisk:
+      url: https://s3-us-west-2.amazonaws.com/download.cip-project.org/cip-core/deby/buster/beaglebone-black/core-image-minimal-beaglebone.cpio.gz
+      compression: gz
+    dtb:
+      url: https://s3-us-west-2.amazonaws.com/download.cip-project.org/cip-core/deby/buster/beaglebone-black/am335x-boneblack.dtb
+
+- boot:
+    auto_login:
+      login_prompt: 'beaglebone login:'
+      username: root
+    prompts:
+      - '# '
+    method: u-boot
+    commands: ramdisk
+    timeout:
+      minutes: 5
