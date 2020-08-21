@@ -41,7 +41,7 @@ Example:
 
 Build images with `kas-build.sh` helper script.
 
-    $ ./scripts/kas-build.sh kas-${MACHINE}.yml
+    $ ./scripts/kas-build.sh kas/board/${MACHINE}.yml
 
 Run Images on the target board
 ==============================
@@ -57,30 +57,30 @@ Create test image for CIP's LAVA
 base image for QEMU x86-64
 --------------------------
 
-    $ ./scripts/kas-build.sh kas-qemux86-64.yml:opt-deby.yml:opt-dhcp.yml:opt-smc.yml
+    $ ./scripts/kas-build.sh kas/board/qemux86-64.yml:kas/opt/deby.yml:kas/opt/dhcp.yml:kas/opt/smc.yml
 
 LTP test image for QEMU x86-64
 ------------------------------
 
-    $ ./scripts/kas-build.sh kas-qemux86-64.yml:opt-deby.yml:opt-dhcp.yml:opt-ltp.yml
+    $ ./scripts/kas-build.sh kas/board/qemux86-64.yml:kas/opt/deby.yml:kas/opt/dhcp.yml:kas/opt/ltp.yml
 
 base image for QEMU arm (armhf) / iwg20m
 -------------------------
 
-    $ ./scripts/kas-build.sh kas-qemuarm.yml:opt-deby.yml:opt-dhcp.yml:opt-smc.yml
+    $ ./scripts/kas-build.sh kas/board/qemuarm.yml:kas/opt/deby.yml:kas/opt/dhcp.yml:kas/opt/smc.yml
 
 LTP test image for QEMU arm (armhf) / iwg20m
 ------------------------------
 
-    $ ./scripts/kas-build.sh kas-qemuarm.yml:opt-deby.yml:opt-dhcp.yml:opt-ltp.yml
+    $ ./scripts/kas-build.sh kas/board/qemuarm.yml:kas/deby.yml:kas/opt/dhcp.yml:kas/opt/ltp.yml
 
 base image for QEMU arm64 / hihope-rzg2m
 --------------------------
 
-    $ ./scripts/kas-build.sh kas-qemuarm64.yml:opt-deby.yml:opt-dhcp.yml:opt-smc.yml
+    $ ./scripts/kas-build.sh kas/board/qemuarm64.yml:kas/opt/deby.yml:kas/opt/dhcp.yml:kas/opt/smc.yml
 
 LTP test image for QEMU arm64 / hihope-rzg2m
 ------------------------------
 
-    $ ./scripts/kas-build.sh kas-qemuarm64.yml:opt-deby.yml:opt-dhcp.yml:opt-ltp.yml
+    $ ./scripts/kas-build.sh kas/board/qemuarm64.yml:kas/opt/deby.yml:kas/opt/dhcp.yml:kas/opt/ltp.yml
 

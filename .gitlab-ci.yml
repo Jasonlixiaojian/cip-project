@@ -13,7 +13,7 @@ stages:
 build_beaglebone-black:
   stage: build
   script:
-    - kas build --target core-image-minimal kas-beaglebone-black.yml
+    - kas build --target core-image-minimal kas/board/beaglebone-black.yml
     - scripts/upload.sh beaglebone-black
       build/tmp/deploy/images/beaglebone/zImage
       build/tmp/deploy/images/beaglebone/core-image-minimal-beaglebone.cpio.gz
@@ -29,7 +29,7 @@ test_beaglebone-black:
 build_iwg20m:
   stage: build
   script:
-    - kas build --target core-image-minimal kas-iwg20m.yml
+    - kas build --target core-image-minimal kas/board/iwg20m.yml
     - scripts/upload.sh iwg20m
       build/tmp/deploy/images/iwg20m/zImage
       build/tmp/deploy/images/iwg20m/core-image-minimal-iwg20m.tar.bz2
@@ -45,7 +45,7 @@ test_iwg20m:
 build_hihope-rzg2m:
   stage: build
   script:
-    - kas build --target core-image-minimal kas-hihope-rzg2m.yml
+    - kas build --target core-image-minimal kas/board/hihope-rzg2m.yml
     - scripts/upload.sh hihope-rzg2m
       build/tmp/deploy/images/hihope-rzg2m/Image
       build/tmp/deploy/images/hihope-rzg2m/core-image-minimal-hihope-rzg2m.tar.bz2
@@ -61,7 +61,7 @@ test_hihope-rzg2m:
 build_simatic-ipc227e:
   stage: build
   script:
-    - kas build --target core-image-minimal kas-simatic-ipc227e.yml
+    - kas build --target core-image-minimal kas/board/simatic-ipc227e.yml
     - scripts/upload.sh simatic-ipc227e
       build/tmp/deploy/images/simatic-ipc227e/bzImage
       build/tmp/deploy/images/simatic-ipc227e/core-image-minimal-simatic-ipc227e.tar.bz2
@@ -77,7 +77,7 @@ test_simatic-ipc227e:
 build_de0-nano-soc:
   stage: build
   script:
-    - kas build --target core-image-minimal kas-de0-nano-soc.yml
+    - kas build --target core-image-minimal kas/board/de0-nano-soc.yml
     - scripts/upload.sh de0-nano-soc
       build/tmp/deploy/images/de0-nano-soc/zImage
       build/tmp/deploy/images/de0-nano-soc/core-image-minimal-de0-nano-soc.tar.bz2 
