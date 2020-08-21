@@ -3,6 +3,9 @@ image: kasproject/kas:2.0
 variables:
   GIT_STRATEGY: clone
   GIT_DEPTH: 1
+  dtb: none
+  build_image_name: core-image-minimal
+  imgfmt: tar.bz2
 
 stages:
 - build
@@ -10,14 +13,23 @@ stages:
 
 # TODO: Set `only` again to test jobs after the test flows are implemented
 
-build_beaglebone-black:
+.build_base:
   stage: build
+  variables:
+    upload_arg: "${target} ${bb_target} ${kernel} ${build_image_name}-${bb_target}.${imgfmt} ${dtb}"
   script:
-    - kas build --target core-image-minimal kas/board/beaglebone-black.yml
-    - scripts/upload.sh beaglebone-black
-      build/tmp/deploy/images/beaglebone/zImage
-      build/tmp/deploy/images/beaglebone/core-image-minimal-beaglebone.cpio.gz
-      build/tmp/deploy/images/beaglebone/am335x-boneblack.dtb
+    - kas build --target ${build_image_name} kas/board/${target}.yml
+    - scripts/upload.sh ${upload_arg}
+
+build_beaglebone-black:
+  extends:
+    - .build_base
+  variables:
+    target: beaglebone-black
+    bb_target: beaglebone
+    kernel: zImage
+    dtb: am335x-boneblack.dtb
+    imgfmt: cpio.gz
 
 test_beaglebone-black:
   stage: test
@@ -27,13 +39,13 @@ test_beaglebone-black:
     - build_beaglebone-black
 
 build_iwg20m:
-  stage: build
-  script:
-    - kas build --target core-image-minimal kas/board/iwg20m.yml
-    - scripts/upload.sh iwg20m
-      build/tmp/deploy/images/iwg20m/zImage
-      build/tmp/deploy/images/iwg20m/core-image-minimal-iwg20m.tar.bz2
-      build/tmp/deploy/images/iwg20m/r8a7743-iwg20d-q7.dtb
+  extends:
+    - .build_base
+  variables:
+    target: iwg20m
+    bb_target: iwg20m
+    kernel: zImage
+    dtb: r8a7743-iwg20d-q7.dtb
 
 test_iwg20m:
   stage: test
@@ -43,13 +55,13 @@ test_iwg20m:
     - build_iwg20m
 
 build_hihope-rzg2m:
-  stage: build
-  script:
-    - kas build --target core-image-minimal kas/board/hihope-rzg2m.yml
-    - scripts/upload.sh hihope-rzg2m
-      build/tmp/deploy/images/hihope-rzg2m/Image
-      build/tmp/deploy/images/hihope-rzg2m/core-image-minimal-hihope-rzg2m.tar.bz2
-      build/tmp/deploy/images/hihope-rzg2m/r8a774a1-hihope-rzg2m-ex.dtb
+  extends:
+    - .build_base
+  variables:
+    target: hihope-rzg2m
+    bb_target: hihope-rzg2m
+    kernel: Image
+    dtb: r8a774a1-hihope-rzg2m-ex.dtb
 
 test_hihope-rzg2m:
   stage: test
@@ -59,12 +71,12 @@ test_hihope-rzg2m:
     - build_hihope-rzg2m
 
 build_simatic-ipc227e:
-  stage: build
-  script:
-    - kas build --target core-image-minimal kas/board/simatic-ipc227e.yml
-    - scripts/upload.sh simatic-ipc227e
-      build/tmp/deploy/images/simatic-ipc227e/bzImage
-      build/tmp/deploy/images/simatic-ipc227e/core-image-minimal-simatic-ipc227e.tar.bz2
+  extends:
+    - .build_base
+  variables:
+    target: simatic-ipc227e
+    bb_target: simatic-ipc227e
+    kernel: bzImage
 
 test_simatic-ipc227e:
   stage: test
@@ -75,13 +87,13 @@ test_simatic-ipc227e:
     - build_simatic-ipc227e
 
 build_de0-nano-soc:
-  stage: build
-  script:
-    - kas build --target core-image-minimal kas/board/de0-nano-soc.yml
-    - scripts/upload.sh de0-nano-soc
-      build/tmp/deploy/images/de0-nano-soc/zImage
-      build/tmp/deploy/images/de0-nano-soc/core-image-minimal-de0-nano-soc.tar.bz2 
-      build/tmp/deploy/images/de0-nano-soc/socfpga_cyclone5_de0_nano_soc-de0-nano-soc.dtb
+  extends:
+    - .build_base
+  variables:
+    target: de0-nano-soc
+    bb_target: de0-nano-soc
+    kernel: zImage
+    dtb: socfpga_cyclone5_de0_nano_soc-de0-nano-soc.dtb
 
 test_de0-nano-soc:
   stage: test

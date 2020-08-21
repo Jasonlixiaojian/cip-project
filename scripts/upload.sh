@@ -17,8 +17,17 @@ if [ -z "${2}" ]; then
 fi
 
 BOARD="${1}"
-shift
-FILES="${@}"
+BBTARGET="${2}"
+KERNEL="${3}"
+ROOTFS="${4}"
+DTB="${5}"
+
+FILES="build/tmp/deploy/images/${BBTARGET}/${KERNEL} \
+       build/tmp/deploy/images/${BBTARGET}/${ROOTFS}"
+
+if [ "$DTB" != "none" ]; then
+	FILES="${FILES} build/tmp/deploy/images/${BBTARGET}/${DTB}"
+fi
 
 # Install aws command
 PATH=$PATH:~/.local/bin
