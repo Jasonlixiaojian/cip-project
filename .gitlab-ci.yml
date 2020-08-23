@@ -4,7 +4,10 @@ variables:
   GIT_STRATEGY: clone
   GIT_DEPTH: 1
   dtb: none
+  feature_yaml: none
+  imgname: none
   build_image_name: core-image-minimal
+  kas_yaml: kas/board/${target}.yml
   imgfmt: tar.bz2
 
 stages:
@@ -18,7 +21,9 @@ stages:
   variables:
     upload_arg: "${target} ${bb_target} ${kernel} ${build_image_name}-${bb_target} ${imgfmt} ${dtb}"
   script:
-    - kas build --target ${build_image_name} kas/board/${target}.yml
+    - if [ "$feature_yaml" != "none" ]; then kas_yaml="${kas_yaml}:${feature_yaml}"; fi;
+    - kas build --target ${build_image_name} ${kas_yaml}
+    - if [ "$imgname" != "none" ]; then build_image_name="${build_image_name}-${imgname}"; fi;
     - scripts/upload.sh ${upload_arg}
 
 build:beaglebone-black:
@@ -101,3 +106,40 @@ test:de0-nano-soc:
     - lava/submit-job.sh de0-nano-soc uname
   dependencies:
     - build:de0-nano-soc
+
+# create image include ltp.
+
+build:beaglebone-black-test:
+  extends:
+    - build:beaglebone-black
+  variables:
+    feature_yaml: kas/opt/deby.yml:kas/opt/ltp.yml
+    imagename: ltp
+
+build:iwg20m-test:
+  extends:
+    - build:iwg20m
+  variables:
+    feature_yaml: kas/opt/deby.yml:kas/opt/ltp.yml
+    imagename: ltp
+
+build:hihope-rzg2m-test:
+  extends:
+    - build:hihope-rzg2m
+  variables:
+    feature_yaml: kas/opt/deby.yml:kas/opt/ltp.yml
+    imagename: ltp
+
+build:simatic-ipc227e-test:
+  extends:
+    - build:simatic-ipc227e
+  variables:
+    feature_yaml: kas/opt/deby.yml:kas/opt/ltp.yml
+    imagename: ltp
+
+build:de0-nano-soc-test:
+  extends:
+    - build:de0-nano-soc
+  variables:
+    feature_yaml: kas/opt/deby.yml:kas/opt/ltp.yml
+    imagename: ltp
