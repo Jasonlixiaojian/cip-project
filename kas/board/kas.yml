@@ -20,7 +20,7 @@ repos:
 
   meta-debian:
     url: https://github.com/meta-debian/meta-debian.git
-    refspec: 29c8cc1e8081d848ec290a20a539927dcef2c944
+    refspec: 8dc5105b7e36e253093f8103b1f812535bac24a9
 
   meta-cip-core:
     layers:
