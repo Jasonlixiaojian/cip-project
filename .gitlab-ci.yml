@@ -16,7 +16,7 @@ stages:
 .build_base:
   stage: build
   variables:
-    upload_arg: "${target} ${bb_target} ${kernel} ${build_image_name}-${bb_target}.${imgfmt} ${dtb}"
+    upload_arg: "${target} ${bb_target} ${kernel} ${build_image_name}-${bb_target} ${imgfmt} ${dtb}"
   script:
     - kas build --target ${build_image_name} kas/board/${target}.yml
     - scripts/upload.sh ${upload_arg}

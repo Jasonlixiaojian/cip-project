@@ -19,11 +19,15 @@ fi
 BOARD="${1}"
 BBTARGET="${2}"
 KERNEL="${3}"
-ROOTFS="${4}"
-DTB="${5}"
+ROOTFS="${4}.${5}"
+MANIFEST="${4}.manifest"
+TESTDATA="${4}.testdata.json"
+DTB="${6}"
 
 FILES="build/tmp/deploy/images/${BBTARGET}/${KERNEL} \
-       build/tmp/deploy/images/${BBTARGET}/${ROOTFS}"
+       build/tmp/deploy/images/${BBTARGET}/${ROOTFS} \
+       build/tmp/deploy/images/${BBTARGET}/${MANIFEST} \
+       build/tmp/deploy/images/${BBTARGET}/${TESTDATA}"
 
 if [ "$DTB" != "none" ]; then
 	FILES="${FILES} build/tmp/deploy/images/${BBTARGET}/${DTB}"
