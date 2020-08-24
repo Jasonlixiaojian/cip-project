@@ -110,6 +110,7 @@ test:de0-nano-soc:
 # create image include ltp.
 
 build:beaglebone-black-test:
+  when: manual
   extends:
     - build:beaglebone-black
   variables:
@@ -117,6 +118,7 @@ build:beaglebone-black-test:
     imagename: ltp
 
 build:iwg20m-test:
+  when: manual
   extends:
     - build:iwg20m
   variables:
@@ -124,6 +126,7 @@ build:iwg20m-test:
     imagename: ltp
 
 build:hihope-rzg2m-test:
+  when: manual
   extends:
     - build:hihope-rzg2m
   variables:
@@ -131,6 +134,7 @@ build:hihope-rzg2m-test:
     imagename: ltp
 
 build:simatic-ipc227e-test:
+  when: manual
   extends:
     - build:simatic-ipc227e
   variables:
@@ -138,6 +142,7 @@ build:simatic-ipc227e-test:
     imagename: ltp
 
 build:de0-nano-soc-test:
+  when: manual
   extends:
     - build:de0-nano-soc
   variables:

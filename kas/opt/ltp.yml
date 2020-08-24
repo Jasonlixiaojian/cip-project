@@ -14,7 +14,7 @@ header:
 repos:
   meta-cip-test-support:
     url: https://gitlab.com/iwamatsu/meta-cip-test-support.git
-    refspec: master
+    refspec: 579d22e158333aa90855433ddb94d904c764c49c
 
 local_conf_header:
   ltp: |
