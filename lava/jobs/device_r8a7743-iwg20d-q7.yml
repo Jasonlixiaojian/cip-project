@@ -5,8 +5,8 @@ actions:
     to: tftp
     os: oe
     kernel:
-      url: https://s3-us-west-2.amazonaws.com/download.cip-project.org/cip-core/deby/buster/iwg20m/zImage
-      type: zimage
+      url: https://s3-us-west-2.amazonaws.com/download.cip-project.org/cip-core/deby/buster/iwg20m/uImage
+      type: uimage
     nfsrootfs:
       url: https://s3-us-west-2.amazonaws.com/download.cip-project.org/cip-core/deby/buster/iwg20m/core-image-minimal-iwg20m.tar.bz2
       compression: bz2

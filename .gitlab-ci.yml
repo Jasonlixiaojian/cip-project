@@ -49,7 +49,7 @@ build:iwg20m:
   variables:
     target: iwg20m
     bb_target: iwg20m
-    kernel: zImage
+    kernel: uImage
     dtb: r8a7743-iwg20d-q7.dtb
 
 test:iwg20m:
