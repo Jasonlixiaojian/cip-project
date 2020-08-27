@@ -1,0 +1,25 @@
+actions:
+- deploy:
+    timeout:
+      minutes: 10
+    to: tftp
+    os: oe
+    kernel:
+      url: https://s3-us-west-2.amazonaws.com/download.cip-project.org/cip-core/deby/buster/r8a774c0-ek874/Image
+      type: image
+    nfsrootfs:
+      url: https://s3-us-west-2.amazonaws.com/download.cip-project.org/cip-core/deby/buster/r8a774c0-ek874/core-image-minimal-r8a774c0-ek874.tar.bz2
+      compression: bz2
+    dtb:
+      url: https://s3-us-west-2.amazonaws.com/download.cip-project.org/cip-core/deby/buster/r8a774c0-ek874/r8a774c0-ek874.dtb
+
+- boot:
+    auto_login:
+      login_prompt: 'r8a774c0-ek874 login:'
+      username: root
+    prompts:
+      - '# '
+    method: u-boot
+    commands: nfs
+    timeout:
+      minutes: 5

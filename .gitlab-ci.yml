@@ -123,6 +123,22 @@ test:de0-nano-soc:
   dependencies:
     - build:de0-nano-soc
 
+build:r8a774c0-ek874:
+  extends:
+    - .build_base
+  variables:
+    target: r8a774c0-ek874
+    bb_target: r8a774c0-ek874
+    kernel: Image
+    dtb: r8a774c0-ek874.dtb
+
+test:r8a774c0-ek874:
+  stage: test
+  script:
+    - lava/submit-job.sh r8a774c0-ek874 uname
+  dependencies:
+    - build:r8a774c0-ek874
+
 # create image include ltp.
 
 build:beaglebone-black-test:
@@ -153,6 +169,14 @@ build:hihope-rzg2n-test:
   when: manual
   extends:
     - build:hihope-rzg2n
+  variables:
+    feature_yaml: kas/opt/deby.yml:kas/opt/ltp.yml
+    imagename: ltp
+
+build:r8a774c0-ek874-test:
+  when: manual
+  extends:
+    - build:r8a774c0-ek874
   variables:
     feature_yaml: kas/opt/deby.yml:kas/opt/ltp.yml
     imagename: ltp

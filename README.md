@@ -28,6 +28,7 @@ The following boards are supported in this branch.
 * `iwg20m`: iWave RZ/G1M Qseven Development Kit
 * `hihope-rzg2m`: Hoperun Technology HiHope RZ/G2M platform
 * `hihope-rzg2n`: Hoperun Technology HiHope RZ/G2N platform
+* `r8a774c0-ek874`: Silicon Linux RZ/G2E evaluation kit EK874
 * `simatic-ipc227e`: Siemens SIMATIC IPC227E
 
 Build Target Images

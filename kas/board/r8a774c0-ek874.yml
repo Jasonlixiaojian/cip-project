@@ -1,0 +1,24 @@
+#
+# CIP Core tiny profile
+# kas configuration for Silicon Linux RZ/G2E evaluation kit (EK874)
+#
+# Copyright (c) 2019, 2020 Toshiba Corporation
+#
+# SPDX-License-Identifier: MIT
+#
+
+header:
+  version: 3
+  includes:
+    - kas.yml
+
+repos:
+  meta-r8a774c0-ek874:
+    layers:
+      meta-r8a774c0-ek874:
+
+machine: r8a774c0-ek874
+
+local_conf_header:
+  r8a774c0-ek874: |
+    CIP_KERNEL_CONFIG = "4.19.y-cip/arm64/renesas_defconfig"
