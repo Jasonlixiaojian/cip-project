@@ -18,13 +18,16 @@ stages:
 
 .build_base:
   stage: build
-  variables:
-    upload_arg: "${target} ${bb_target} ${kernel} ${build_image_name}-${bb_target} ${imgfmt} ${dtb}"
   script:
     - if [ "$feature_yaml" != "none" ]; then kas_yaml="${kas_yaml}:${feature_yaml}"; fi;
     - kas build --target ${build_image_name} ${kas_yaml}
     - if [ "$imgname" != "none" ]; then build_image_name="${build_image_name}-${imgname}"; fi;
-    - scripts/upload.sh ${upload_arg}
+    - scripts/upload.sh ${target} ${bb_target} ${kernel} ${build_image_name}-${bb_target} ${imgfmt} ${dtb}
+
+.build_ltp:
+  variables:
+    feature_yaml: kas/opt/deby.yml:kas/opt/ltp.yml
+    imgname: ltp
 
 build:beaglebone-black:
   extends:
@@ -157,66 +160,50 @@ test:zynqmp-zcu102:
 
 # create image include ltp.
 
-build:beaglebone-black-test:
+build:beaglebone-black-ltp:
   when: manual
   extends:
     - build:beaglebone-black
-  variables:
-    feature_yaml: kas/opt/deby.yml:kas/opt/ltp.yml
-    imagename: ltp
+    - .build_ltp
 
-build:iwg20m-test:
+build:iwg20m-ltp:
   when: manual
   extends:
     - build:iwg20m
-  variables:
-    feature_yaml: kas/opt/deby.yml:kas/opt/ltp.yml
-    imagename: ltp
+    - .build_ltp
 
-build:hihope-rzg2m-test:
+build:hihope-rzg2m-ltp:
   when: manual
   extends:
     - build:hihope-rzg2m
-  variables:
-    feature_yaml: kas/opt/deby.yml:kas/opt/ltp.yml
-    imagename: ltp
+    - .build_ltp
 
-build:hihope-rzg2n-test:
+build:hihope-rzg2n-ltp:
   when: manual
   extends:
     - build:hihope-rzg2n
-  variables:
-    feature_yaml: kas/opt/deby.yml:kas/opt/ltp.yml
-    imagename: ltp
+    - .build_ltp
 
-build:r8a774c0-ek874-test:
+build:r8a774c0-ek874-ltp:
   when: manual
   extends:
     - build:r8a774c0-ek874
-  variables:
-    feature_yaml: kas/opt/deby.yml:kas/opt/ltp.yml
-    imagename: ltp
+    - .build_ltp
 
-build:simatic-ipc227e-test:
+build:simatic-ipc227e-ltp:
   when: manual
   extends:
     - build:simatic-ipc227e
-  variables:
-    feature_yaml: kas/opt/deby.yml:kas/opt/ltp.yml
-    imagename: ltp
+    - .build_ltp
 
-build:de0-nano-soc-test:
+build:de0-nano-soc-ltp:
   when: manual
   extends:
     - build:de0-nano-soc
-  variables:
-    feature_yaml: kas/opt/deby.yml:kas/opt/ltp.yml
-    imagename: ltp
+    - .build_ltp
 
-build:zynqmp-zcu102-test:
+build:zynqmp-zcu102-ltp:
   when: manual
   extends:
     - build:zynqmp-zcu102
-  variables:
-    feature_yaml: kas/opt/deby.yml:kas/opt/ltp.yml
-    imagename: ltp
+    - .build_ltp
