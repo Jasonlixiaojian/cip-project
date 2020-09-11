@@ -1,0 +1,31 @@
+#
+# CIP Core tiny profile with Security
+# packages and configuration
+#
+# Copyright (c) 2019 TOSHIBA Corp.
+#
+# SPDX-License-Identifier: MIT
+#
+
+header:
+    version: 8
+
+repos:
+    meta-cip-security:
+       layers:
+          meta-cip-security:
+
+local_conf_header:
+  security: |
+    DISTRO_FEATURES_append += " pam"
+    CORE_IMAGE_EXTRA_INSTALL += " \
+                                 aide aide-common \
+                                 openssl openssl-bin \
+                                 openssh openssh-misc \
+                                 chrony chronyc \
+                                 libpam pam-plugin-cracklib pam-plugin-tally2 \
+                                 syslog-ng \
+                                 acl \
+                                 sudo \
+                                 auditd \
+                                 "
