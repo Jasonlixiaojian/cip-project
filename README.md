@@ -88,3 +88,8 @@ LTP test image for QEMU arm64 / hihope-rzg2m
 
     $ ./scripts/kas-build.sh kas/board/qemuarm64.yml:kas/opt/deby.yml:kas/opt/dhcp.yml:kas/opt/ltp.yml
 
+Create Security image for QEMU x86-64
+-------------------------------------
+
+    $ ./scripts/kas-build.sh kas/board/qemux86-64.yml:kas/opt/deby.yml:kas/opt/security.yml
+
